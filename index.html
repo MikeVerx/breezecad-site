@@ -31,7 +31,9 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .kick{margin:0;font:500 14px 'IBM Plex Mono',monospace;color:#8a6a2c}
 .h2{margin:14px 0 0;font-size:64px;line-height:1.04;letter-spacing:-0.03em;font-weight:700}
 .lead{margin:20px 0 0;font-size:20px;line-height:1.55;color:#4a5060;max-width:640px}
-.nav a{color:#1c1f24;text-decoration:none;font-size:15px;padding:10px 2px}
+.nav a{color:#1c1f24;text-decoration:none;font-size:15px;padding:10px 2px;white-space:nowrap}
+@media (max-width:1320px){.hide-mid{display:none!important}.nav-links{gap:18px!important}}
+@media (max-width:1100px){.nav-soon{display:none!important}}
 .nav a:hover{color:#1e4fd8}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .25s ease,background .25s ease,border-color .25s ease}
 .btn:hover{transform:translateY(-2px)}
@@ -39,6 +41,16 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .btn-blue:hover{background:#163ea8;color:#fff}
 .btn-ghost{background:#fff;color:#1c1f24;border:1px solid #d9dce3}
 .btn-ghost:hover{color:#1e4fd8;border-color:#1e4fd8}
+.pain-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px!important;border-radius:999px;background:#fff;border:1px solid #e3e5ea}
+.pain-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#d64545}
+.pain-teaser{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:48px}
+.pain-teaser a{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #e3e5ea;border-radius:24px;padding:26px;text-decoration:none;color:#1c1f24;transition:transform .25s ease,border-color .25s ease}
+.pain-teaser a:hover{transform:translateY(-3px);border-color:#f4d3d3;color:#1c1f24}
+.pain-teaser .p{font-size:15px;line-height:1.5;color:#8a4a4a}
+.pain-teaser .s{font-size:20px;font-weight:600;line-height:1.25}
+.redtag{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:11px;background:#d64545;color:#fff;font:500 16px 'IBM Plex Mono',monospace}
+.foot-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.foot-nav a{color:#4a5060;text-decoration:none}.foot-nav a:hover{color:#1e4fd8}
 .card{background:#fff;border:1px solid #e3e5ea;border-radius:28px;padding:36px}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
@@ -75,6 +87,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .nav-links{display:none!important}
 .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pain-teaser{grid-template-columns:repeat(2,minmax(0,1fr))}
 .step-row{grid-template-columns:minmax(0,1fr);gap:24px}
 .step-row.flip .step-text{order:0}
 .h2{font-size:48px}
@@ -82,7 +95,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 }
 @media (max-width:600px){
 .wrap{padding:0 16px}
-.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}
+.g2,.g3,.g4,.pain-teaser{grid-template-columns:minmax(0,1fr)}
 .lang,.hide-sm{display:none!important}
 .h2{font-size:38px}
 .hero-h{font-size:46px!important}
@@ -107,13 +120,14 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1c1f24; flex-shrink: 0" aria-label="BreezeCAD — свобода творить, наверх">
 <img src="assets/mark.svg" width="24" height="28" alt="">
 <span class="wordmark" style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em">Breeze<span style="font-weight: 400; color: #6b7182">CAD</span></span>
-<span class="hide-sm" style="font-size: 15px; color: #5b6170">— свобода творить</span>
+<span class="hide-sm hide-mid" style="font-size: 15px; color: #5b6170">— свобода творить</span>
 </a>
 <nav class="nav nav-links" style="display: flex; align-items: center; gap: 24px" aria-label="Разделы">
 <a href="#interface">Интерфейс</a>
 <a href="#android">Android</a>
-<a href="#authors">Авторы</a>
-<span style="color: #8b909c; font-size: 15px; padding: 10px 2px">Веб-версия <span class="mono" style="font-size: 11px; padding: 2px 6px; border-radius: 6px; background: #eceef2; color: #5b6170">скоро</span></span>
+<a href="pain.html" class="pain-pill">Боль инженера</a>
+<a href="people.html">Люди проекта</a>
+<span class="nav-soon" style="color: #8b909c; font-size: 15px; padding: 10px 2px; white-space: nowrap">Веб-версия <span class="mono" style="font-size: 11px; padding: 2px 6px; border-radius: 6px; background: #eceef2; color: #5b6170">скоро</span></span>
 <a href="https://vk.ru/breezecad" target="_blank" rel="noopener">Новости ↗</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0">
@@ -251,6 +265,19 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <p class="rv" style="margin: 20px 0 0; font-size: 15px; color: #5b6170"><a href="https://github.com/MikeVerx/breezecad/releases" target="_blank" rel="noopener">Все выпуски и что нового ↗</a></p>
 </section>
 
+<section id="pain" class="wrap sec">
+<span class="redtag rv">Боль инженера</span>
+<h2 class="h2 rv" style="margin-top:18px">Сделано из боли.</h2>
+<p class="lead rv">Каждая функция BreezeCAD — ответ на то, что годами бесило нас в других программах.</p>
+<div class="pain-teaser">
+<a class="rv" href="pain.html#controls"><span class="p">Чья это мышь?</span><span class="s">Управление подстраивается под вас</span></a>
+<a class="rv" href="pain.html#thread"><span class="p">Резьба только на картинке</span><span class="s">Резьба, которая печатается</span></a>
+<a class="rv" href="pain.html#windows"><span class="p">За окном не видно, что нажать</span><span class="s">Никаких окон поверх модели</span></a>
+<a class="rv" href="pain.html#autosave"><span class="p">Ctrl+S после каждой операции</span><span class="s">Работа не пропадёт</span></a>
+</div>
+<p class="rv" style="margin:24px 0 0"><a class="btn btn-ghost" href="pain.html">Все выпуски рубрики →</a></p>
+</section>
+
 <section id="authors" class="wrap sec">
 <p class="kick rv">06 · авторы</p>
 <h2 class="h2 rv">От инженера для инженеров.</h2>
@@ -273,6 +300,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <p style="margin: 0; max-width: 400px; color: #4a5060; line-height: 1.55">Модуль MCP для нейросетей, пакет стандартных изделий и треть всех репортов.</p>
 </div>
 </div>
+<div class="rv" style="margin-top:56px;text-align:center"><a class="btn btn-ghost" href="people.html">Все люди проекта →</a></div>
 </section>
 
 <section id="news" class="wrap sec" style="padding-bottom: 120px">
@@ -293,7 +321,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <span style="font-size: 14px; color: #4a5060">© 2026 BreezeCAD · свобода творить</span>
 </div>
 <p style="margin: 0; font-size: 14px; color: #4a5060">Сайт ничего о вас не собирает: без регистрации, трекеров и cookie. <a href="privacy.html">Политика конфиденциальности</a></p>
-<span class="mono" style="font-size: 13px; color: #5b6170">веб-версия — скоро</span>
+<nav class="foot-nav" aria-label="Страницы"><a href="pain.html">Боль инженера</a><a href="people.html">Люди проекта</a><span style="color:#8b909c">Веб-версия — скоро</span></nav>
 </div>
 </footer>
 

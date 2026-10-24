@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Люди проекта — BreezeCAD</title>
+<meta name="description" content="Автор BreezeCAD, особенные члены проекта, бета-тестеры и все, кто поддерживает программу.">
+<meta name="theme-color" content="#f5f6f8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Люди проекта — BreezeCAD">
+<meta property="og:description" content="Автор BreezeCAD, особенные члены проекта, бета-тестеры и все, кто поддерживает программу.">
+<meta property="og:image" content="https://breezecad.ru/assets/img/og.jpg">
+<link rel="stylesheet" href="assets/pages.css">
+<style>
+.author{display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:center;margin-top:48px}
+.author img{display:block;width:100%;height:auto;aspect-ratio:376/444;object-fit:cover;border-radius:26px;box-shadow:0 24px 48px rgba(28,31,36,.14)}
+.badge{display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;background:var(--blue);color:#fff;font-weight:500;font-size:15px}
+.author h2{margin:16px 0 0;font-size:44px;letter-spacing:-.03em}
+.author p{margin:16px 0 0;font-size:18px;line-height:1.6;color:var(--ink2);max-width:620px}
+.persons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.person{background:#fff;border:1px solid var(--line);border-radius:26px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.person .av{width:88px;height:88px}
+.role{font-size:13px;color:var(--gold)}
+.person h3{margin:6px 0 8px;font-size:22px}
+.person p{margin:0;font-size:16px;line-height:1.55;color:var(--ink2)}
+.av{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;object-fit:cover;background:#e8eefc;color:var(--blue);font-size:28px;flex-shrink:0}
+.testers{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+.testers li{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px 20px}
+.testers .av{width:44px;height:44px;font-size:15px}
+.testers b{display:block;font-size:17px}
+.testers span:not(.av){display:block;margin-top:2px;font-size:15px;color:var(--ink2)}
+.names{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.names li{padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.empty{margin:28px 0 0;padding:28px;border:1.5px dashed #c9d3ee;border-radius:22px;color:var(--ink2);font-size:17px;line-height:1.55;background:rgba(255,255,255,.6)}
+.join{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.join a{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink)}
+.join .t{font-size:24px;font-weight:600}
+.join .d{color:var(--ink2);line-height:1.55}
+.join a.hi{background:var(--blue);border-color:var(--blue);color:#fff}
+.join a.hi .d{color:#e3ebfc}.join a.hi .kick{color:#c9d6f7}
+@media (max-width:980px){
+.author{grid-template-columns:200px minmax(0,1fr);gap:32px}
+.persons,.join{grid-template-columns:minmax(0,1fr)}
+.person{flex-direction:row;align-items:flex-start}
+.person .av{width:64px;height:64px;font-size:22px}
+.author h2{font-size:36px}
+}
+@media (max-width:600px){
+.author{grid-template-columns:minmax(0,1fr)}
+.author img{max-width:260px}
+.testers{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="./" aria-label="BreezeCAD — на главную"><img src="assets/mark.svg" width="24" height="28" alt=""><b>Breeze<span>CAD</span></b><span class="tag">— свобода творить</span></a>
+<nav class="nav" aria-label="Разделы">
+<a href="./#interface">Интерфейс</a>
+<a href="./#android">Android</a>
+<a href="pain.html" class="pill">Боль инженера</a>
+<a href="people.html" aria-current="page">Люди проекта</a>
+<span class="soon">Веб-версия <span>скоро</span></span>
+<a href="https://vk.ru/breezecad" target="_blank" rel="noopener">Новости ↗</a>
+</nav>
+<div style="display:flex;gap:10px;flex-shrink:0">
+<a class="btn btn-ghost hbtn" href="https://boosty.to/breezecad" target="_blank" rel="noopener">Поддержать</a>
+<a class="btn btn-blue hbtn" href="./#download">Скачать</a>
+</div>
+</div></header>
+<main>
+<section class="wrap hero">
+<p class="kick in">люди проекта</p>
+<h1 class="h1 in d1">BreezeCAD делают<br>не в одиночку.</h1>
+<p class="lead in d2">Программу пишет один человек, но живой её делают многие: те, кто тестирует, ищет ошибки, придумывает и поддерживает.</p>
+</section>
+
+<section class="wrap sec" style="padding-top:72px">
+<p class="kick rv">автор</p>
+<div class="author rv">
+<img src="assets/img/author-verkholashin.webp" width="376" height="444" alt="Михаил Верхолашин">
+<div>
+<span class="badge">Основатель и автор программы</span>
+<h2>Михаил Верхолашин</h2>
+<p>Генеральный директор ООО «НаноБиоКаркас», ведущий инженер лаборатории исследования генома ИТЭБ РАН, соавтор научных статей и патента, специалист в области естественных наук. И просто человек с неуёмными амбициями и аппетитом к достижениям.</p>
+<p>В BreezeCAD отвечает за всё: от философии и дизайна до каждой функции — и за исправление ошибок, которые находят тестеры.</p>
+<p style="margin-top:20px"><a href="https://nanobiokarkas.ru/" target="_blank" rel="noopener">О проекте «НаноБиоКаркас» ↗</a></p>
+</div>
+</div>
+</section>
+
+<section class="wrap sec">
+<p class="kick rv">особенные члены проекта</p>
+<h2 class="h2 rv">Без них ничего бы не было.</h2>
+<div class="persons">
+<!-- Михаил Афонишев -->
+<article class="person rv"><img class="av" src="assets/img/author-afonishev.webp" width="88" height="88" alt="" loading="lazy"><div><span class="role mono">первый мододел</span><h3>Михаил Афонишев</h3><p>Модуль MCP для нейросетей и пакет стандартных изделий. Автор трети всех репортов — с первого дня бета-теста.</p></div></article>
+<!-- Александр Коваленко -->
+<article class="person rv"><span class="av mono" aria-hidden="true">АК</span><div><span class="role mono">лучший друг автора</span><h3>Александр Коваленко</h3><p>Тот, кто дал всей затее несоизмеримый толчок.</p></div></article>
+<!-- Ульяна Рубцова -->
+<article class="person rv"><span class="av mono" aria-hidden="true">УР</span><div><span class="role mono">опора проекта</span><h3>Ульяна Рубцова</h3><p>Колоссальная моральная поддержка и участие в бета-тестировании.</p></div></article>
+</div>
+</section>
+
+<section class="wrap sec">
+<p class="kick rv">бета-тестеры</p>
+<h2 class="h2 rv">Ломали, чтобы не сломалось у вас.</h2>
+<!-- Чтобы добавить тестера: скопируйте строку <li>…</li> и поменяйте имя, буквы в кружке и подпись -->
+<ul class="testers rv">
+<li><span class="av mono" aria-hidden="true">ДС</span><div><b>Денис Савинков</b><span>второй генератор репортов и идей</span></div></li>
+<li><span class="av mono" aria-hidden="true">ГЗ</span><div><b>Григорий Зайцев</b><span>третий генератор репортов и исправлений</span></div></li>
+<li><span class="av mono" aria-hidden="true">D</span><div><b>Dardek</b><span>третий репорт-мастер</span></div></li>
+<li><span class="av mono" aria-hidden="true">МП</span><div><b>Михаил Попов</b><span>первый запуск на macOS</span></div></li>
+<li><span class="av mono" aria-hidden="true">СП</span><div><b>Сергей Пустохин</b><span>первый полноценный пользователь на macOS</span></div></li>
+</ul>
+</section>
+
+<section class="wrap sec">
+<p class="kick rv">поддержавшие на бусти</p>
+<h2 class="h2 rv">Спасибо, что BreezeCAD живёт.</h2>
+<div class="rv">
+<p class="empty">Здесь появятся имена тех, кто поддержит BreezeCAD на Бусти и захочет быть указанным на сайте. Можно стать первым.</p>
+</div>
+</section>
+
+<section class="wrap sec">
+<p class="kick rv">стать частью проекта</p>
+<h2 class="h2 rv">Место найдётся и вам.</h2>
+<div class="join">
+<a class="card rv" href="https://vk.ru/breezecad" target="_blank" rel="noopener"><span class="kick">бета-тест</span><span class="t">Тестировать ↗</span><span class="d">Напишите в группе ВКонтакте — пригласим в чат тестеров, а свежие сборки будут у вас первыми.</span></a>
+<a class="card rv hi" href="https://boosty.to/breezecad" target="_blank" rel="noopener"><span class="kick">поддержать</span><span class="t">Бусти ↗</span><span class="d">BreezeCAD бесплатен и живёт на донатах. Здесь первыми выходят тестовые сборки.</span></a>
+<a class="card rv" href="https://github.com/MikeVerx/breezecad/issues" target="_blank" rel="noopener"><span class="kick">код и репорты</span><span class="t">GitHub ↗</span><span class="d">Нашли ошибку или есть идея? Расскажите — разберёмся.</span></a>
+</div>
+</section>
+</main>
+<footer class="ftr"><div class="wrap">
+<div style="display:flex;align-items:center;gap:10px"><img src="assets/mark.svg" width="18" height="21" alt=""><span>© 2026 BreezeCAD · свобода творить</span></div>
+<nav aria-label="Страницы"><a href="./">Главная</a><a href="pain.html">Боль инженера</a><a href="people.html">Люди проекта</a><a href="privacy.html">Конфиденциальность</a></nav>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Боль инженера — BreezeCAD</title>
+<meta name="description" content="Что годами бесило инженера в САПР — и как это решено в BreezeCAD.">
+<meta name="theme-color" content="#f5f6f8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Боль инженера — BreezeCAD">
+<meta property="og:description" content="Что годами бесило инженера в САПР — и как это решено в BreezeCAD.">
+<meta property="og:image" content="https://breezecad.ru/assets/img/og.jpg">
+<link rel="stylesheet" href="assets/pages.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.chips a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:15px}
+.chips a span{font:13px 'IBM Plex Mono',monospace;color:var(--red)}
+.chips a:hover{border-color:var(--red-line);color:var(--ink)}
+.ep{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center;padding-top:140px}
+.ep.flip .ep-text{order:2}
+.pain{background:var(--red-bg);border:1px solid var(--red-line);border-radius:22px;padding:24px 26px}
+.pain-tag{font-size:13px;color:var(--red)}
+.pain h3{margin:8px 0 8px;font-size:20px;color:#5a2b2b}
+.pain p{margin:0;font-size:16px;line-height:1.6;color:#6b4545}
+.fix{margin-top:28px}
+.fix-tag{font-size:13px;color:var(--blue)}
+.fix .h2{font-size:44px;color:var(--ink)}
+.checks{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.checks li{position:relative;padding-left:34px;font-size:17px;line-height:1.55;color:#33373f}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat}
+.punch{margin:26px 0 0;font-size:15px;color:var(--gold)}
+.ep-shot{margin:0}
+.frame{background:#fff;border:1px solid var(--line);border-radius:22px;padding:7px;box-shadow:0 34px 70px rgba(28,31,36,.12)}
+.pic{position:relative;border-radius:15px;overflow:hidden}
+.pic img{display:block;width:100%;height:auto}
+.dot{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--blue);color:#fff;font:600 14px 'IBM Plex Sans',sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 6px 16px rgba(30,79,216,.35)}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--blue);animation:ping 2.4s ease-out infinite;opacity:0}
+@keyframes ping{0%{transform:scale(.9);opacity:.7}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+.legend{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
+.legend li{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
+.num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font:600 12px 'IBM Plex Sans',sans-serif;display:inline-flex;align-items:center;justify-content:center}
+.final{margin-top:140px;text-align:center;padding:72px 32px}
+@media (max-width:980px){
+.ep{grid-template-columns:minmax(0,1fr);gap:32px;padding-top:96px}
+.ep.flip .ep-text{order:0}
+.fix .h2{font-size:36px}
+}
+@media (max-width:600px){
+.fix .h2{font-size:30px}
+.dot{width:24px;height:24px;margin:-12px 0 0 -12px;font-size:12px}
+.final{padding:48px 20px}
+}
+@media (prefers-reduced-motion: reduce){.dot::after{display:none}}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+<a class="brand" href="./" aria-label="BreezeCAD — на главную"><img src="assets/mark.svg" width="24" height="28" alt=""><b>Breeze<span>CAD</span></b><span class="tag">— свобода творить</span></a>
+<nav class="nav" aria-label="Разделы">
+<a href="./#interface">Интерфейс</a>
+<a href="./#android">Android</a>
+<a href="pain.html" class="pill" aria-current="page">Боль инженера</a>
+<a href="people.html">Люди проекта</a>
+<span class="soon">Веб-версия <span>скоро</span></span>
+<a href="https://vk.ru/breezecad" target="_blank" rel="noopener">Новости ↗</a>
+</nav>
+<div style="display:flex;gap:10px;flex-shrink:0">
+<a class="btn btn-ghost hbtn" href="https://boosty.to/breezecad" target="_blank" rel="noopener">Поддержать</a>
+<a class="btn btn-blue hbtn" href="./#download">Скачать</a>
+</div>
+</div></header>
+<main>
+<section class="wrap hero">
+<span class="redtag in">Боль инженера</span>
+<h1 class="h1 in d1">Сделано из боли.</h1>
+<p class="lead in d2">Я годами работаю в САПР — и годами что-то в них меня бесило. Здесь самое болезненное и то, как это решено в BreezeCAD.</p>
+<p class="in d2" style="margin:14px 0 0;font-size:15px;color:var(--muted)">— Михаил Верхолашин, автор программы</p>
+<nav class="chips in d3" aria-label="Выпуски">
+<a href="#controls"><span>01</span>Управление подстраивается под вас</a>
+<a href="#thread"><span>02</span>Резьба, которая печатается</a>
+<a href="#windows"><span>03</span>Никаких окон поверх модели</a>
+<a href="#autosave"><span>04</span>Работа не пропадёт</a>
+</nav>
+</section>
+<section id="controls" class="ep wrap">
+<div class="ep-text">
+<div class="pain rv">
+<span class="pain-tag mono">боль 01</span>
+<h3>Чья это мышь?</h3>
+<p>В течение дня у меня открыты три-четыре программы — и у каждой своё мнение о мыши. В одной зажатое колесо двигает деталь, в другой то же движение её вращает. Колесо где-то приближает, где-то отдаляет. К обеду рука уверенно крутит деталь не туда.</p>
+</div>
+<div class="fix rv">
+<span class="fix-tag mono">решение</span>
+<h2 class="h2">Управление подстраивается под вас.</h2>
+<ul class="checks">
+<li>Готовые наборы мыши — как в Inventor, КОМПАС-3D, SolidWorks и Blender: выбрал один, и руки работают как привыкли.</li>
+<li>Или свой: вращение, сдвиг и масштаб на любую кнопку с Shift, Ctrl или Alt, направление колеса, скорость и стиль вращения.</li>
+<li>Сочетания клавиш — готовыми наборами или как угодно. Свой набор сохраняется в файл и переезжает с вами на другой компьютер.</li>
+<li>Отдельная вкладка для тачпада: два пальца с модификаторами, щипок, поворот.</li>
+</ul>
+<p class="punch mono">Руки помнят — программа подстраивается.</p>
+</div>
+</div>
+<figure class="ep-shot zm">
+<div class="frame"><div class="pic"><img src="assets/img/pain-controls.webp" width="1051" height="811" alt="Настройки управления мышью: список готовых наборов и выбор кнопок" loading="lazy">
+<span class="dot" style="left:22%;top:40.5%" aria-hidden="true">1</span>
+<span class="dot" style="left:62%;top:58%" aria-hidden="true">2</span>
+<span class="dot" style="left:50%;top:83%" aria-hidden="true">3</span>
+</div></div>
+<figcaption><ol class="legend">
+<li><span class="num">1</span>Готовые наборы управления</li>
+<li><span class="num">2</span>Любая кнопка + Shift, Ctrl или Alt</li>
+<li><span class="num">3</span>Направление колеса</li>
+</ol></figcaption>
+</figure>
+</section>
+<section id="thread" class="ep wrap flip">
+<div class="ep-text">
+<div class="pain rv">
+<span class="pain-tag mono">боль 02</span>
+<h3>Резьба, которая есть только на картинке</h3>
+<p>Нарезал резьбу, отправил в слайсер — а там гладкий цилиндр. Резьба была условной, просто рисунком на грани. Хочешь напечатать — строй витки вручную и вспоминай, какой там шаг у M8.</p>
+</div>
+<div class="fix rv">
+<span class="fix-tag mono">решение</span>
+<h2 class="h2">Резьба, которая печатается.</h2>
+<ul class="checks">
+<li>Щелчок по валу или отверстию — и размер определяется сам. Отверстие 6,8 мм программа узнает как отверстие под M8.</li>
+<li>Шаг — крупный по ISO, мелкий можно вписать руками.</li>
+<li>Витки — честная геометрия ISO 60°: в STL и 3MF они уходят сразу.</li>
+<li>Модель тяжёлая? Резьбу можно показывать условно — в экспорт всё равно уйдёт настоящая.</li>
+</ul>
+<p class="punch mono">Один щелчок — дальше дело за принтером.</p>
+</div>
+</div>
+<figure class="ep-shot zm">
+<div class="frame"><div class="pic"><img src="assets/img/thread.webp" width="1600" height="1000" alt="Инструмент «Резьба»: размер M30×3,5 определён сам, на валу настоящие витки" loading="lazy">
+<span class="dot" style="left:23%;top:31.5%" aria-hidden="true">1</span>
+<span class="dot" style="left:23%;top:44%" aria-hidden="true">2</span>
+<span class="dot" style="left:66%;top:52%" aria-hidden="true">3</span>
+</div></div>
+<figcaption><ol class="legend">
+<li><span class="num">1</span>Размер — сам: M30×3,5</li>
+<li><span class="num">2</span>Шаг — крупный по ISO</li>
+<li><span class="num">3</span>Настоящие витки — сразу в STL и 3MF</li>
+</ol></figcaption>
+</figure>
+</section>
+<section id="windows" class="ep wrap">
+<div class="ep-text">
+<div class="pain rv">
+<span class="pain-tag mono">боль 03</span>
+<h3>За окном не видно то, что хотел нажать</h3>
+<p>Включаешь измерение — и окно с результатом встаёт ровно на то ребро, которое надо щёлкнуть. Строишь плоскость по трём точкам, на третьей промахнулся — и выбор сбросился. Начинай заново.</p>
+</div>
+<div class="fix rv">
+<span class="fix-tag mono">решение</span>
+<h2 class="h2">Никаких окон поверх модели.</h2>
+<ul class="checks">
+<li>Результаты измерения — в левой панели: расстояние, ΔX/ΔY/ΔZ, площади, радиусы и кнопка «Копировать». На модели — только линия и подпись.</li>
+<li>У каждого выбранного элемента своё поле с крестиком: сбросить можно одну точку, а не всё сразу.</li>
+<li>Щелчок мимо ничего не сбрасывает.</li>
+</ul>
+<p class="punch mono">Посчитайте, сколько раз за день вы двигаете окна.</p>
+</div>
+</div>
+<figure class="ep-shot zm">
+<div class="frame"><div class="pic"><img src="assets/img/pain-windows.webp" width="1280" height="800" alt="Плоскость по трём точкам: две точки выбраны, третья ждёт, модель ничем не закрыта" loading="lazy">
+<span class="dot" style="left:22%;top:48%" aria-hidden="true">1</span>
+<span class="dot" style="left:60%;top:42%" aria-hidden="true">2</span>
+<span class="dot" style="left:64.4%;top:80.6%" aria-hidden="true">3</span>
+</div></div>
+<figcaption><ol class="legend">
+<li><span class="num">1</span>У каждой точки своё поле</li>
+<li><span class="num">2</span>Модель ничем не закрыта</li>
+<li><span class="num">3</span>Выбранные точки — прямо на модели</li>
+</ol></figcaption>
+</figure>
+</section>
+<section id="autosave" class="ep wrap flip">
+<div class="ep-text">
+<div class="pain rv">
+<span class="pain-tag mono">боль 04</span>
+<h3>Ctrl+S после каждой операции</h3>
+<p>У каждого конструктора есть рефлекс: сделал операцию — Ctrl+S. Его не выдумали, его выдрессировали. Обычно ценой нескольких часов работы, которые исчезли вместе с окном программы.</p>
+</div>
+<div class="fix rv">
+<span class="fix-tag mono">решение</span>
+<h2 class="h2">Работа не пропадёт.</h2>
+<ul class="checks">
+<li>Автосохранение раз в 2, 5 или 10 минут — даже посреди эскиза.</li>
+<li>Копия пишется в паузе, пока вы ничего не трогаете, поэтому ничего не подвисает.</li>
+<li>На каждый документ хранятся три последние копии.</li>
+<li>После сбоя на главной появляется «Несохранённая работа»: одна кнопка — и вы там, где остановились.</li>
+<li>А если программа всё-таки упадёт — окно с кодом ошибки, который можно скопировать и прислать.</li>
+</ul>
+<p class="punch mono">Ctrl+S — теперь привычка, а не страховка.</p>
+</div>
+</div>
+<figure class="ep-shot zm">
+<div class="frame"><div class="pic"><img src="assets/img/pain-autosave.webp" width="1210" height="934" alt="Настройки: автосохранение каждые 5 минут" loading="lazy">
+<span class="dot" style="left:61.5%;top:82.5%" aria-hidden="true">1</span>
+</div></div>
+<figcaption><ol class="legend">
+<li><span class="num">1</span>Раз в 2, 5 или 10 минут</li>
+</ol></figcaption>
+</figure>
+</section>
+<section class="wrap">
+<div class="card final rv">
+<span class="redtag">Боль инженера</span>
+<h2 class="h2" style="margin-top:22px">А что бесит вас?</h2>
+<p class="lead" style="margin-left:auto;margin-right:auto">Рубрика продолжается в группе ВКонтакте. Расскажите в комментариях, что мешает вам в САПР, — возможно, следующий выпуск будет про вашу боль.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+<a class="btn btn-ghost" href="https://vk.ru/breezecad" target="_blank" rel="noopener">Рубрика в ВКонтакте ↗</a>
+<a class="btn btn-blue" href="./#download">Скачать BreezeCAD</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="ftr"><div class="wrap">
+<div style="display:flex;align-items:center;gap:10px"><img src="assets/mark.svg" width="18" height="21" alt=""><span>© 2026 BreezeCAD · свобода творить</span></div>
+<nav aria-label="Страницы"><a href="./">Главная</a><a href="pain.html">Боль инженера</a><a href="people.html">Люди проекта</a><a href="privacy.html">Конфиденциальность</a></nav>
+</div></footer>
+</body>
+</html>
